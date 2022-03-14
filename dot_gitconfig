@@ -1,0 +1,7 @@
+[init]
+	defaultBranch = main
+[user]
+	email = zxy-cc-3ag13@protonmail.com
+    name = ZXY-CC-3ag13
+[core]
+    editor = nvim

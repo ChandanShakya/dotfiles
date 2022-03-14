@@ -1,0 +1,24 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+PS1="\[\033[38;5;11m\][\u@\h]\[$(tput sgr0)\]\[\033[38;5;70m\][\w]\[$(tput sgr0)\]\[\033[38;5;44m\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/')\[$(tput sgr0)\]\n\[$(tput sgr0)\]\[\033[38;5;11m\]\\$\[$(tput sgr0)\] \[$(tput sgr0)\]"
+
+PROMPT_COMMAND="export PROMPT_COMMAND=echo"
+export PATH="$PATH:/home/chandan/.local/bin"
+export PATH="$JAVA_HOME/bin:$PATH"
+export PATH="$PATH:/home/chandan/sysprog/CustomExec"
+export JAVA_HOME="/usr/lib/jvm/java-17-openjdk/"
+export JDK_JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+export HISTSIZE=-1
+export HISTFILESIZE=-1
+export TERMINAL="xfce4-terminal"
+export RANGER_LOAD_DEFAULT_RC="FALSE"
+export VISUAL="nvim"
+export EDITOR="nvim"
+
+source ~/.bash_aliases
+source ~/.inputrc

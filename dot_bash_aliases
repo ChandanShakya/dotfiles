@@ -1,0 +1,7 @@
+alias x='exit'
+alias vim='nvim'
+alias ls='ls -hN --color=auto --group-directories-first'
+alias wr='curl -s wttr.in/?2?F?Q'
+alias yt='yt-dlp -f "22/best" -o "/home/chandan/Downloads/%(title)s.%(ext)s" --write-auto-sub --write-sub --sub-lang en'
+alias neofetch='neofetch | dotacat'
+alias nml='cd ~/Backup/MEGA/College/Fourth/NM/Report/Lab/'
