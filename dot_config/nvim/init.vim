@@ -67,7 +67,7 @@ let g:vimwiki_list = [{'auto_diary_index': 1}]
 lua << EOF
 require'nvim-treesitter.configs'.setup {
   -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-  ensure_installed = {"c","html","css","javascript","php","bash","vim"},
+  ensure_installed = {"c","html","css","javascript","php","bash","vim","markdown"},
 
   -- Install languages synchronously (only applied to `ensure_installed`)
   sync_install = false,
