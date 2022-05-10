@@ -85,10 +85,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+apostrophe split h
+bindsym $mod+semicolon split h
 
 # split in vertical orientation
-bindsym $mod+backslash split v
+bindsym $mod+apostrophe split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -124,8 +124,7 @@ set $ws9 "9"
 set $ws10 "10"
 
 # switch to workspace
-bindsym $mod+g workspace prev
-bindsym $mod+semicolon workspace next
+# bindsym $mod+g workspace prev
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
@@ -201,6 +200,8 @@ hide_edge_borders both
 for_window [title="GIMP Startup"] move workspace $ws5
 for_window [class="Gimp"] move workspace $ws5
 for_window [class="^mpv$"] floating enable
+bindsym $mod+m exec "midori -p -e fullscreen"
+bindsym $mod+v exec "qutebrowser-profile"
 
 # Wiki floating scratchpad
 bindsym $mod+shift+n exec --no-startup-id xfce4-terminal --title=wikiVim -e "nvim -c 'VimwikiMakeDiaryNote'"

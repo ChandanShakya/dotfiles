@@ -35,6 +35,8 @@ Plug 'vimwiki/vimwiki'
 Plug 'itchyny/lightline.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'neovim/nvim-lspconfig'
+Plug 'andweeb/presence.nvim'
 call plug#end()                     " End the plugin call
 
 colorscheme zellner                 " Set Colorscheme to slate
