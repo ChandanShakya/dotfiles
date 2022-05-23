@@ -1,5 +1,5 @@
 syntax on                   " Turn Syntax highlighting On
-filetype plugin on
+filetype plugin indent on
 
 set mouse=a
 set nocompatible
@@ -37,6 +37,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'andweeb/presence.nvim'
+Plug 'rust-lang/rust.vim'
 call plug#end()                     " End the plugin call
 
 colorscheme zellner                 " Set Colorscheme to slate

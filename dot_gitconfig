@@ -3,5 +3,8 @@
 [user]
 	email = zxy-cc-3ag13@protonmail.com
     name = ZXY-CC-3ag13
+	signingkey = 72237889F024C8C1
 [core]
     editor = nvim
+[commit]
+	gpgsign = true
