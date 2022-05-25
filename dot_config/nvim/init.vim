@@ -72,26 +72,28 @@ nnoremap <C-n> :tabnew<CR>
 nnoremap <C-q> :tabclose<CR>
 nnoremap <C-f> :Autoformat<CR>
 augroup CBuild
-autocmd!
-autocmd filetype c nnoremap <buffer> <C-b> :w !gcc % -o %< & ./%<<CR>
-autocmd filetype javascript nnoremap <buffer> <C-b> :w !node %<CR>
+    autocmd!
+    autocmd filetype c nnoremap <buffer> <C-b> :w !gcc % -o %< & ./%<<CR>
+    autocmd filetype javascript nnoremap <buffer> <C-b> :w !node %<CR>
+    autocmd filetype python nnoremap <buffer> <C-b> :w !python %<CR>
+    autocmd filetype html nnoremap <buffer> <C-b> :w !google-chrome-stable --incognito %<CR>
 augroup END
 
 let g:lightline = {
-			\ 'active': {
-			\   'left': [ [ 'mode', 'paste' ],
-			\             [ 'readonly', 'filename', 'gitbranch', 'modified' ] ]
-			\ },
-            \ 'right': [ [ 'lineinfo', 'syntastic' ],
-		    \            [ 'percent' ],
-		    \            [ 'fileformat', 'fileencoding', 'filetype' ] ],
-			\ 'component_function': {
-			\   'gitbranch': 'FugitiveHead',
-            \   'syntastic': 'SyntasticStatuslineFlag',
-			\ },
-			\ }
+            \ 'active': {
+                \   'left': [ [ 'mode', 'paste' ],
+                \             [ 'readonly', 'filename', 'gitbranch', 'modified' ] ]
+                \ },
+                \ 'right': [ [ 'lineinfo', 'syntastic' ],
+                \            [ 'percent' ],
+                \            [ 'fileformat', 'fileencoding', 'filetype' ] ],
+                \ 'component_function': {
+                    \   'gitbranch': 'FugitiveHead',
+                    \   'syntastic': 'SyntasticStatuslineFlag',
+                    \ },
+                    \ }
 let g:syntastic_mode_map = { 'mode': 'passive',
-	      \                      'active_filetypes': ['c', 'cpp', 'rust'] }
+            \                      'active_filetypes': ['c', 'cpp', 'rust'] }
 let g:syntastic_rust_checkers = ['cargo']
 
 " Start NERDTree when Vim is started without file arguments.
@@ -136,14 +138,14 @@ require'nvim-treesitter.configs'.setup {
         },
     }
 
-  -- Set configuration for specific filetype.
-  cmp.setup.filetype('gitcommit', {
-      sources = cmp.config.sources({
-      { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-      }, {
-      { name = 'buffer' },
-      })
-  })
+-- Set configuration for specific filetype.
+cmp.setup.filetype('gitcommit', {
+    sources = cmp.config.sources({
+    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+    }, {
+    { name = 'buffer' },
+    })
+})
 
   -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
   cmp.setup.cmdline('/', {
@@ -172,14 +174,14 @@ require'nvim-treesitter.configs'.setup {
   require('lspconfig')['ltex'].setup {
       capabilities = capabilities
       }
-require('lspconfig').ccls.setup {
-    capabilities=capabilities,
-  init_options = {
-    cache = {
-      directory = ".ccls-cache";
-    };
-  }
-}
+  require('lspconfig').ccls.setup {
+      capabilities=capabilities,
+      init_options = {
+          cache = {
+              directory = ".ccls-cache";
+              };
+          }
+      }
   require('lspconfig')['dockerls'].setup {
       capabilities = capabilities
       }
@@ -233,35 +235,35 @@ require('lspconfig').ccls.setup {
   }
   local nvim_lsp = require'lspconfig'
 
-local opts = {
-    tools = { -- rust-tools options
-        autoSetHints = true,
-        hover_with_actions = true,
-        inlay_hints = {
-            show_parameter_hints = false,
-            parameter_hints_prefix = "",
-            other_hints_prefix = "",
-        },
-    },
+  local opts = {
+      tools = { -- rust-tools options
+      autoSetHints = true,
+      hover_with_actions = true,
+      inlay_hints = {
+          show_parameter_hints = false,
+          parameter_hints_prefix = "",
+          other_hints_prefix = "",
+          },
+      },
 
-    -- all the opts to send to nvim-lspconfig
-    -- these override the defaults set by rust-tools.nvim
-    -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
-    server = {
-        -- on_attach is a callback called when the language server attachs to the buffer
-        -- on_attach = on_attach,
-        settings = {
-            -- to enable rust-analyzer settings visit:
-            -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
-            ["rust-analyzer"] = {
-                -- enable clippy on save
-                checkOnSave = {
-                    command = "clippy"
-                },
-            }
-        }
-    },
-}
+  -- all the opts to send to nvim-lspconfig
+  -- these override the defaults set by rust-tools.nvim
+  -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
+  server = {
+      -- on_attach is a callback called when the language server attachs to the buffer
+      -- on_attach = on_attach,
+      settings = {
+          -- to enable rust-analyzer settings visit:
+          -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
+          ["rust-analyzer"] = {
+              -- enable clippy on save
+              checkOnSave = {
+                  command = "clippy"
+                  },
+              }
+          }
+      },
+  }
 
 require('rust-tools').setup(opts)
 EOF
@@ -271,13 +273,13 @@ EOF
 lua <<EOF
 local cmp = require'cmp'
 cmp.setup({
-  -- Enable LSP snippets
-  snippet = {
+-- Enable LSP snippets
+snippet = {
     expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body)
+    vim.fn["vsnip#anonymous"](args.body)
     end,
-  },
-  mapping = {
+    },
+mapping = {
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-n>'] = cmp.mapping.select_next_item(),
     -- Add tab support
@@ -288,69 +290,69 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Insert,
-      select = true,
+    behavior = cmp.ConfirmBehavior.Insert,
+    select = true,
     })
-  },
+},
 
   -- Installed sources
   sources = {
-    { name = 'nvim_lsp' },
-    { name = 'vsnip' },
-    { name = 'path' },
-    { name = 'buffer' },
-  },
-})
+      { name = 'nvim_lsp' },
+      { name = 'vsnip' },
+      { name = 'path' },
+      { name = 'buffer' },
+      },
+  })
 local util = require 'lspconfig.util'
 
 local root_files = {
-  'compile_commands.json',
-  '.ccls',
-}
+    'compile_commands.json',
+    '.ccls',
+    }
 
 return {
-  default_config = {
-    cmd = { 'ccls' },
-    filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
-    root_dir = function(fname)
-      return util.root_pattern(unpack(root_files))(fname) or util.find_git_ancestor(fname)
-    end,
-    offset_encoding = 'utf-32',
-    -- ccls does not support sending a null root directory
-    single_file_support = false,
-  },
-  docs = {
-    description = [[
-https://github.com/MaskRay/ccls/wiki
-
-ccls relies on a [JSON compilation database](https://clang.llvm.org/docs/JSONCompilationDatabase.html) specified
-as compile_commands.json or, for simpler projects, a .ccls.
-For details on how to automatically generate one using CMake look [here](https://cmake.org/cmake/help/latest/variable/CMAKE_EXPORT_COMPILE_COMMANDS.html). Alternatively, you can use [Bear](https://github.com/rizsotto/Bear).
-
-Customization options are passed to ccls at initialization time via init_options, a list of available options can be found [here](https://github.com/MaskRay/ccls/wiki/Customization#initialization-options). For example:
-
-```lua
-local lspconfig = require'lspconfig'
-lspconfig.ccls.setup {
-  init_options = {
-    compilationDatabaseDirectory = "build";
-    index = {
-      threads = 0;
-    };
-    clang = {
-      excludeArgs = { "-frounding-math"} ;
-    };
-  }
-}
-
-```
-
-]],
     default_config = {
-      root_dir = function(fname)
+        cmd = { 'ccls' },
+        filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
+        root_dir = function(fname)
         return util.root_pattern(unpack(root_files))(fname) or util.find_git_ancestor(fname)
-      end,
+        end,
+        offset_encoding = 'utf-32',
+        -- ccls does not support sending a null root directory
+        single_file_support = false,
+        },
+    docs = {
+        description = [[
+        https://github.com/MaskRay/ccls/wiki
+
+        ccls relies on a [JSON compilation database](https://clang.llvm.org/docs/JSONCompilationDatabase.html) specified
+        as compile_commands.json or, for simpler projects, a .ccls.
+        For details on how to automatically generate one using CMake look [here](https://cmake.org/cmake/help/latest/variable/CMAKE_EXPORT_COMPILE_COMMANDS.html). Alternatively, you can use [Bear](https://github.com/rizsotto/Bear).
+
+        Customization options are passed to ccls at initialization time via init_options, a list of available options can be found [here](https://github.com/MaskRay/ccls/wiki/Customization#initialization-options). For example:
+
+        ```lua
+        local lspconfig = require'lspconfig'
+        lspconfig.ccls.setup {
+            init_options = {
+                compilationDatabaseDirectory = "build";
+                index = {
+                    threads = 0;
+                    };
+                clang = {
+                    excludeArgs = { "-frounding-math"} ;
+                    };
+                }
+            }
+
+        ```
+
+        ]],
+    default_config = {
+        root_dir = function(fname)
+        return util.root_pattern(unpack(root_files))(fname) or util.find_git_ancestor(fname)
+        end,
+        },
     },
-  },
 }
 EOF
