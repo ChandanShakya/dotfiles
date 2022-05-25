@@ -38,6 +38,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'andweeb/presence.nvim'
 Plug 'rust-lang/rust.vim'
 Plug 'simrat39/rust-tools.nvim'
+Plug 'Chiel92/vim-autoformat'
 
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'neovim/nvim-lspconfig'
@@ -69,6 +70,12 @@ nnoremap <leader>t :NERDTreeToggle<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
 nnoremap <C-n> :tabnew<CR>
 nnoremap <C-q> :tabclose<CR>
+nnoremap <C-f> :Autoformat<CR>
+augroup CBuild
+autocmd!
+autocmd filetype c nnoremap <buffer> <C-b> :w !gcc % -o %< & ./%<<CR>
+autocmd filetype javascript nnoremap <buffer> <C-b> :w !node %<CR>
+augroup END
 
 let g:lightline = {
 			\ 'active': {
@@ -194,7 +201,8 @@ require('lspconfig').ccls.setup {
       capabilities=capabilities
       }
   require('lspconfig')['tsserver'].setup {
-      capabilities=capabilities
+      capabilities=capabilities,
+      on_attach = custom_attach, root_dir = vim.loop.cwd
       }
   require('lspconfig')['pyright'].setup {
       capabilities=capabilities

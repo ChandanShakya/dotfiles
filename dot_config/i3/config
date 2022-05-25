@@ -202,6 +202,7 @@ for_window [class="Gimp"] move workspace $ws5
 for_window [class="^mpv$"] floating enable
 bindsym $mod+m exec "midori -p -e fullscreen"
 bindsym $mod+v exec "qutebrowser-profile"
+bindsym $mod+c exec "google-chrome-stable --incognito"
 
 # Wiki floating scratchpad
 bindsym $mod+shift+n exec --no-startup-id xfce4-terminal --title=wikiVim -e "nvim -c 'VimwikiMakeDiaryNote'"
