@@ -58,7 +58,7 @@ bindsym ctrl+q kill
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
-bindsym ctrl+space exec "rofi -show"
+bindsym ctrl+space exec "rofi -show combi"
 bindsym Mod1+space exec "rofi -show filebrowser"
 # change focus
 bindsym $mod+h focus left
@@ -200,9 +200,6 @@ hide_edge_borders both
 for_window [title="GIMP Startup"] move workspace $ws5
 for_window [class="Gimp"] move workspace $ws5
 for_window [class="^mpv$"] floating enable
-bindsym $mod+m exec "midori -p -e fullscreen"
-bindsym $mod+v exec "qutebrowser-profile"
-bindsym $mod+c exec "google-chrome-stable --incognito"
 
 # Wiki floating scratchpad
 bindsym $mod+shift+n exec --no-startup-id xfce4-terminal --title=wikiVim -e "nvim -c 'VimwikiMakeDiaryNote'"
