@@ -1,0 +1,10 @@
+user_pref("network.trr.mode", 3);
+user_pref("network.cookie.cookieBehavior", 5);
+user_pref("browser.compactmode.show", "true");
+user_pref("browser.newtabpage.activity-stream.feeds.discoverystreamfeed", "false");
+user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", "false");
+user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", "false");
+user_pref("browser.newtabpage.activity-stream.showSponsored", "false");
+user_pref("extensions.pocket.enabled", "false");
+user_pref("media.peerconnection.enabled", "false");
+user_pref("media.navigator.enabled", "false");
