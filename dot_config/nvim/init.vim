@@ -52,6 +52,8 @@ Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'onsails/lspkind.nvim'
 Plug 'vim-syntastic/syntastic'
+Plug 'github/copilot.vim'
+
 call plug#end()                     " End the plugin call
 
 colorscheme zellner                 " Set Colorscheme to slate
@@ -78,6 +80,8 @@ augroup CBuild
     autocmd filetype python nnoremap <buffer> <C-b> :w !python %<CR>
     autocmd filetype html nnoremap <buffer> <C-b> :w !google-chrome-stable --incognito %<CR>
 augroup END
+imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+        let g:copilot_no_tab_map = v:true
 
 let g:lightline = {
             \ 'active': {
