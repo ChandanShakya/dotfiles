@@ -81,7 +81,7 @@ augroup CBuild
     autocmd filetype html nnoremap <buffer> <C-b> :w !google-chrome-stable --incognito %<CR>
 augroup END
 imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
-        let g:copilot_no_tab_map = v:true
+let g:copilot_no_tab_map = v:true
 
 let g:lightline = {
             \ 'active': {
@@ -242,14 +242,22 @@ cmp.setup.filetype('gitcommit', {
   local opts = {
       tools = { -- rust-tools options
       autoSetHints = true,
-      hover_with_actions = true,
+      hover_with_actions = false,
       inlay_hints = {
           show_parameter_hints = false,
           parameter_hints_prefix = "",
           other_hints_prefix = "",
           },
+      hover_actions = {
+          border = {
+              {"╭", "FloatBorder"}, {"─", "FloatBorder"},
+              {"╮", "FloatBorder"}, {"│", "FloatBorder"},
+              {"╯", "FloatBorder"}, {"─", "FloatBorder"},
+              {"╰", "FloatBorder"}, {"│", "FloatBorder"}
+              },
+          auto_focus = true
+          }
       },
-
   -- all the opts to send to nvim-lspconfig
   -- these override the defaults set by rust-tools.nvim
   -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer

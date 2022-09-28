@@ -24,7 +24,7 @@ exec --no-startup-id dunst
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-exec --no-startup-id i3-msg 'workspace 1; exec firefox-developer-edition; exec clementine'
+# exec --no-startup-id i3-msg 'workspace 1; exec notion-app-enhanced; exec clementine'
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -188,6 +188,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 default_border pixel 0
+default_floating_border pixel 0
+for_window [class="^.*"] border pixel 0
 bindsym ctrl+Mod1+l exec "i3lock -i /home/chandan/Images/plane.png"
 bindsym Print exec "flameshot gui"
 bindsym shift+Print exec "scrot '/home/chandan/Images/Screenshots/%Y-%m-%d_%H:%M:%S.png'"
