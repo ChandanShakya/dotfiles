@@ -53,6 +53,7 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'onsails/lspkind.nvim'
 Plug 'vim-syntastic/syntastic'
 Plug 'github/copilot.vim'
+Plug 'dstein64/vim-startuptime'
 
 call plug#end()                     " End the plugin call
 
@@ -75,10 +76,10 @@ nnoremap <C-q> :tabclose<CR>
 nnoremap <C-f> :Autoformat<CR>
 augroup CBuild
     autocmd!
-    autocmd filetype c nnoremap <buffer> <C-b> :w !gcc % -o %< & ./%<<CR>
+    autocmd filetype c nnoremap <buffer> <C-b> :w !gcc % -o %< && ./%<<CR>
     autocmd filetype javascript nnoremap <buffer> <C-b> :w !node %<CR>
     autocmd filetype python nnoremap <buffer> <C-b> :w !python %<CR>
-    autocmd filetype html nnoremap <buffer> <C-b> :w !google-chrome-stable --incognito %<CR>
+    autocmd filetype html nnoremap <buffer> <C-b> :w !brave --incognito %<CR>
 augroup END
 imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true

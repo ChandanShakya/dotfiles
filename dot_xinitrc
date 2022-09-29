@@ -1,2 +1,3 @@
 xmodmap .Xmodmap
+xset x off
 exec dbus-launch i3
