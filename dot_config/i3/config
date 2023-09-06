@@ -48,7 +48,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec xfce4-terminal 
 
 # kill focused window
 bindsym ctrl+q kill
@@ -194,9 +194,9 @@ bindsym ctrl+Mod1+l exec "i3lock -i /home/chandan/Images/plane.png"
 bindsym Print exec "flameshot gui"
 bindsym shift+Print exec "scrot '/home/chandan/Images/Screenshots/%Y-%m-%d_%H:%M:%S.png'"
 bindsym ctrl+Print exec "scrot -d 3 '/home/chandan/Images/Screenshots/%Y-%m-%d_%H:%M:%S.png'"
-bindsym Mod1+e exec "xfce4-terminal -x ranger"
-bindsym ctrl+shift+Escape exec "xfce4-terminal -x htop"
-bindsym Mod1+F4 exec "rofi -show power-menu -modi power-menu:/home/chandan/sysprog/GItbrr/GitHub/rofi-power-menu/rofi-power-menu"
+bindsym Mod1+e exec "xfce4-terminal -e ranger"
+bindsym ctrl+shift+Escape exec "xfce4-terminal -e htop"
+bindsym Mod1+F4 exec "rofi -show power-menu -modi power-menu:rofi-power-menu"
 bindsym $mod+y exec "mpv --ytdl-raw-options=write-auto-sub=,sub-lang=en $(xclip -selection clipboard -o)"
 bindsym $mod+Mod1+y exec "mpv $(xclip -selection clipboard -o) --no-video"
 bindsym ctrl+$mod+y exec "yt-dlp -f '22/best' -o '/home/chandan/Downloads/%(title)s.%(ext)s' --write-auto-sub --write-sub --sub-lang en $(xclip -selection clipboard -o)"

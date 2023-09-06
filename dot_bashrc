@@ -9,7 +9,6 @@ PS1="\[\033[38;5;11m\][\u@\h]\[$(tput sgr0)\]\[\033[38;5;70m\][\w]\[$(tput sgr0)
 
 PROMPT_COMMAND="export PROMPT_COMMAND=echo"
 export PATH="$PATH:/home/chandan/.local/bin"
-export PATH="$PATH:/home/chandan/.dotnet/tools"
 export PATH="$JAVA_HOME/bin:$PATH"
 export PATH="$PATH:/home/chandan/sysprog/CustomExec"
 export JAVA_HOME="/usr/lib/jvm/java-17-openjdk/"
@@ -20,7 +19,7 @@ export TERMINAL="xfce4-terminal"
 export RANGER_LOAD_DEFAULT_RC="FALSE"
 export VISUAL="nvim"
 export EDITOR="nvim"
-export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
 # pip bash completion start
 _pip_completion()
 {
@@ -31,21 +30,6 @@ _pip_completion()
 complete -o default -F _pip_completion pip
 # pip bash completion end
 
-# bash parameter completion for the dotnet CLI
-
-function _dotnet_bash_complete()
-{
-  local cur="${COMP_WORDS[COMP_CWORD]}" IFS=$'\n'
-  local candidates
-
-  read -d '' -ra candidates < <(dotnet complete --position "${COMP_POINT}" "${COMP_LINE}" 2>/dev/null)
-
-  read -d '' -ra COMPREPLY < <(compgen -W "${candidates[*]:-}" -- "$cur")
-}
-
-complete -f -F _dotnet_bash_complete dotnet
-
 source ~/.bash_aliases
 source ~/.inputrc
 export GPG_TTY=$(tty)
-. "$HOME/.cargo/env"

@@ -40,7 +40,8 @@ Plug 'rust-lang/rust.vim'
 Plug 'simrat39/rust-tools.nvim'
 Plug 'Chiel92/vim-autoformat'
 
-Plug 'williamboman/nvim-lsp-installer'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
 
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -57,7 +58,7 @@ Plug 'dstein64/vim-startuptime'
 
 call plug#end()                     " End the plugin call
 
-colorscheme zellner                 " Set Colorscheme to slate
+colorscheme slate                 " Set Colorscheme to slate
 set background=dark                 " Set background to dark
 
 let mapleader = " "                 " Set the leader key to space
@@ -115,8 +116,9 @@ set completeopt=menu,menuone,noselect
 lua << EOF
 local cmp = require'cmp'
 
---require'lspconfig'.bashls.setup{}
-require("nvim-lsp-installer").setup {}
+-- lsp installer new
+require("mason").setup()
+require("mason-lspconfig").setup()
 
 require'nvim-treesitter.configs'.setup {
     -- One of "all", "maintained" (parsers with maintainers), or a list of languages
@@ -171,7 +173,7 @@ cmp.setup.filetype('gitcommit', {
   })
 
   -- Setup lspconfig.
-  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  local capabilities = require('cmp_nvim_lsp').default_capabilities()
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
   require('lspconfig')['bashls'].setup {
       capabilities = capabilities
@@ -194,7 +196,7 @@ cmp.setup.filetype('gitcommit', {
   require('lspconfig')['yamlls'].setup {
       capabilities = capabilities
       }
-  require('lspconfig')['sqls'].setup {
+  require('lspconfig')['sqlls'].setup {
       capabilities = capabilities
       }
 

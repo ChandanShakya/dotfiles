@@ -1,3 +1,4 @@
 xmodmap .Xmodmap
+~/.fehbg &
 xset x off
 exec dbus-launch i3
