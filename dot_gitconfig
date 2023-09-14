@@ -2,8 +2,8 @@
 	defaultBranch = main
 [user]
 	email = zxy-cc-3ag13@protonmail.com
-    name = ZXY-CC-3ag13
-	signingkey = 72237889F024C8C1
+    name = ChandanShakya
+	signingkey = 2BF9D8580A5057EB 
 [core]
     editor = nvim
 [commit]

@@ -33,3 +33,4 @@ complete -o default -F _pip_completion pip
 source ~/.bash_aliases
 source ~/.inputrc
 export GPG_TTY=$(tty)
+export PATH=~/.local/bin/:$PATH

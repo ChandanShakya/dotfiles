@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-fill '/home/arc/Images/plane.png' '/home/arc/Images/dark_place.jpeg' 
+feh --no-fehbg --fullscreen --bg-center '/home/arc/Images/plane.png' '/home/arc/Images/dark_place.jpeg' 

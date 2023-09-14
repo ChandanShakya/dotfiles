@@ -53,9 +53,9 @@ Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'onsails/lspkind.nvim'
 Plug 'vim-syntastic/syntastic'
-Plug 'github/copilot.vim'
+"Plug 'github/copilot.vim'
 Plug 'dstein64/vim-startuptime'
-
+Plug 'wakatime/vim-wakatime'
 call plug#end()                     " End the plugin call
 
 colorscheme slate                 " Set Colorscheme to slate
