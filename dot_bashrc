@@ -11,8 +11,10 @@ PROMPT_COMMAND="export PROMPT_COMMAND=echo"
 export PATH="$PATH:/home/chandan/.local/bin"
 export PATH="$JAVA_HOME/bin:$PATH"
 export PATH="$PATH:/home/chandan/sysprog/CustomExec"
-export JAVA_HOME="/usr/lib/jvm/java-17-openjdk/"
-export JDK_JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+export JAVA_HOME="/usr/lib/jvm/java-20-temurin/"
+SILENT_JDK_JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+unset JDK_JAVA_OPTIONS
+alias java='java "$SILENT_JDK_JAVA_OPTIONS"'
 export HISTSIZE=-1
 export HISTFILESIZE=-1
 export TERMINAL="xfce4-terminal"
@@ -32,5 +34,6 @@ complete -o default -F _pip_completion pip
 
 source ~/.bash_aliases
 source ~/.inputrc
+source ~/Project/bash-wakatime/bash-wakatime.sh
 export GPG_TTY=$(tty)
 export PATH=~/.local/bin/:$PATH
