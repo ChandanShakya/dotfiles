@@ -14,8 +14,9 @@ general {
 order += "cpu_usage"
 order += "memory"
 order += "volume master"
+order += "battery 0"
+order += "cpu_temperature 0"
 order += "tztime local"
-
 cpu_usage{
     format = "CPU : %usage"
     separator = false
@@ -26,14 +27,29 @@ memory {
     separator = false
     separator_block_width = 30
 }
-
-tztime local {
-    format = "%Y %m %d %H:%M:%S"
-}
 volume master {
     format = "♪: %volume"
         format_muted = "♪: muted (%volume)"
-        device = "pulse:alsa_output.pci-0000_00_05.0.analog-stereo"
     separator = false
     separator_block_width = 30
+}
+battery 0 {
+        format = "%status %percentage %remaining %emptytime"
+        format_down = "No battery"
+        status_chr = "⚡ CHR"
+        status_bat = "🔋 BAT"
+        status_unk = "? UNK"
+        status_full = "☻ FULL"
+        low_threshold = 10
+	separator = false
+	separator_block_width = 30
+}
+cpu_temperature 0 {
+        format = "T: %degrees °C"
+	separator = false
+	separator_block_width = 30
+}
+
+tztime local {
+	format = "%Y %m %d %H:%M:%S"
 }

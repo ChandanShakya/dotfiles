@@ -7,7 +7,7 @@ combi-modi: "window,drun";
 /*	xoffset: 0;*/
 /*	fixed-num-lines: true;*/
 /* show-icons: true;*/
-terminal: "xfce4-terminal";
+terminal: "alacritty";
 /*	ssh-client: "ssh";*/
 /*	ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";*/
 /*	run-command: "{cmd}";*/

@@ -53,7 +53,7 @@ Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'onsails/lspkind.nvim'
 Plug 'vim-syntastic/syntastic'
-"Plug 'github/copilot.vim'
+Plug 'github/copilot.vim'
 Plug 'dstein64/vim-startuptime'
 Plug 'wakatime/vim-wakatime'
 call plug#end()                     " End the plugin call
@@ -206,10 +206,6 @@ require('lspconfig')['html'].setup {
 }
 require('lspconfig')['intelephense'].setup {
     capabilities=capabilities
-}
-require('lspconfig')['tsserver'].setup {
-    capabilities=capabilities,
-    on_attach = custom_attach, root_dir = vim.loop.cwd
 }
 require('lspconfig')['pyright'].setup {
     capabilities=capabilities

@@ -1,2 +1,16 @@
 #!/bin/sh
-feh --no-fehbg --fullscreen --bg-center '/home/arc/Images/plane.png' '/home/arc/Images/dark_place.jpeg' 
+# Conditionally set display settings based on the presence of VGA1
+if xrandr | grep -q "VGA1 connected"; then
+    # Set LVDS1 as primary and place it right of VGA1
+    xrandr --output LVDS1 --primary --right-of VGA1
+    
+    # Set background image on LVDS1 and VGA1
+    feh --no-fehbg --bg-center '/etc/bgs/Images/thinkpad.png' --bg-center '/etc/bgs/Images/plane.png'
+else
+    # Only LVDS1 is available, set it as primary
+    xrandr --output LVDS1 --primary
+    
+    # Set background image only on LVDS1
+    feh --no-fehbg --bg-center '/etc/bgs/Images/thinkpad.png'
+fi
+

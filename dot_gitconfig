@@ -3,53 +3,8 @@
 [user]
 	email = zxy-cc-3ag13@protonmail.com
     name = ChandanShakya
-	signingkey = 2BF9D8580A5057EB 
+	signingkey = 7C46E26026485541
 [core]
     editor = nvim
 [commit]
 	gpgsign = true
-[safe]
-	directory = /home/arc/Project/AdLab
-	directory = /home/arc/Project/availability-calendar
-	directory = /home/arc/Project/bash-wakatime
-	directory = /home/arc/Project/blog
-	directory = /home/arc/Project/bookingartist
-	directory = /home/arc/Project/Book-Recommendation
-	directory = /home/arc/Project/cal
-	directory = ~/Project/ChandanShakya.github.io
-	directory = /home/arc/Project/ChowBot
-	directory = /home/arc/Project/Chow-s-ModPack
-	directory = /home/arc/Project/CMS
-	directory = /home/arc/Project/cpp-lab
-	directory = /home/arc/Project/CRUD
-	directory = /home/arc/Project/Dark-Discord-Black-Clean-Compact-D2-B-C2
-	directory = /home/arc/Project/Diary
-	directory = /home/arc/Project/Futsal1
-	directory = /home/arc/Project/GitPass
-	directory = /home/arc/Project/GitPassFileZilla
-	directory = /home/arc/Project/GoldMandu
-	directory = /home/arc/Project/GoodMandu_restaurent
-	directory = /home/arc/Project/KabirProfileViews
-	directory = /home/arc/Project/kapi
-	directory = /home/arc/Project/Kurakahani.github.io
-	directory = /home/arc/Project/Laravel_Ul.Ex.Pk
-	directory = /home/arc/Project/MazeGenerator
-	directory = /home/arc/Project/MetalHub
-	directory = /home/arc/Project/Movie Booking System with Seat Selection
-	directory = /home/arc/Project/Movie-Info-Scrape
-	directory = /home/arc/Project/Package-Delivery-System
-	directory = /home/arc/Project/rategoldsilver
-	directory = /home/arc/Project/testGround
-	directory = /home/arc/Project/To-Do-App-Laravel
-	directory = /home/arc/Project/Todo-php
-	directory = /home/arc/Project/UnitConverterJava
-	directory = /home/arc/Project/WeatherAppJava
-	directory = /home/arc/Project/workwiz
-	directory = /home/arc/Project/ZXY-CC-3ag13
-	directory = /home/arc/Project/bash-wakatime
-[credential "https://github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential

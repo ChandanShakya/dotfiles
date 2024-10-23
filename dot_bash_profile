@@ -2,6 +2,11 @@
 # ~/.bash_profile
 #
 
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/github
+export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
+source /home/black/sysprog/CustomExec/home.sh
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
+
 

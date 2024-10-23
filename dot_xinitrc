@@ -1,4 +1,9 @@
-xmodmap .Xmodmap
-~/.fehbg &
-xset x off
-exec dbus-launch i3
+# Load Xmodmap keybindings
+xmodmap ~/.Xmodmap
+
+# Disable system bell (beep sound)
+xset b off
+
+# Launch i3 window manager with dbus
+exec dbus-launch --exit-with-session i3
+
