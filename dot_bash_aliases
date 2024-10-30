@@ -1,18 +1,48 @@
 alias x='exit'
+alias vim='nvim'
+alias mandilup="sudo nmcli device wifi hotspot con-name MandilWifi ssid MandilWifi band bg password MandilWifi"
+alias mandildown="sudo nmcli connection delete MandilWifi"
 alias ls='ls -hN --color=auto --group-directories-first'
 alias wr='curl -s wttr.in/?2?F?Q'
 alias yt='yt-dlp -f "22/best" -o "/home/chandan/Downloads/%(title)s.%(ext)s" --write-auto-sub --write-sub --sub-lang en'
+alias neofetch='neofetch | dotacat'
 alias nm='nm-applet'
 alias pa='pavucontrol'
 alias xm='xmodmap ~/.Xmodmap'
-alias term='alacritty'
 alias o='xdg-open '
-alias vim='nvim'
-alias pgstart='systemctl start postgresql'
-alias pgstop='systemctl stop postgresql'
-alias specs='fastfetch | dotacat'
-alias clipcopy='xclip -selection clipboard'
-alias display="~/.fehbg"
-alias mariastart='systemctl start mariadb'
-alias mariastop='systemctl stop mariadb'
-alias mariarestart='systemctl restart mariadb'
+alias vpip='~/Projects/pythonenvs/py1/bin/pip3'
+alias vpy='~/Projects/pythonenvs/py1/bin/python3'
+alias ipaddr="ip addr | awk '\$1==\"inet\" && \$3!=\"scope\" {print \$2}' "
+# shellcheck shell=bash
+alias casserve='cd ~/Projects/cas && php artisan serve --host=192.168.1.59 --port=8000'
+alias casnpm='cd ~/Projects/cas && npm run dev -- --host 192.168.1.59 --port 8001'
+alias cass="if ! tmux has-session -t casSession 2>/dev/null; then \
+  if ! systemctl is-active --quiet mariadb.service; then \
+    echo 'Starting mariadb.service...'; \
+    sudo systemctl start mariadb.service; \
+  fi && \
+  tmux new-session -d -s casSession -n casserve && \
+  tmux send-keys 'casserve' C-m && \
+  tmux split-window -h && \
+  tmux send-keys 'casnpm' C-m && \
+  tmux select-pane -t 1 && \
+  tmux split-window -v && \
+  tmux send-keys 'cd ~/Projects/cas/' C-m && \
+  if ! pgrep -x "code" > /dev/null; then \
+    tmux send-keys 'code .' C-m; \
+  else \
+    echo 'Visual Studio Code is already running.'; \
+  fi && \
+  tmux select-pane -t 0; \
+  vivaldi 192.168.1.59:8000 &>/dev/null & \
+  fi && tmux attach-session -t casSession"
+alias cask="tmux kill-session -t casSession 2>/dev/null && { \
+  if systemctl is-active --quiet mariadb.service; then \
+    echo 'Stopping mariadb.service...'; \
+    sudo systemctl stop mariadb.service; \
+    echo 'mariadb.service stopped.'; \
+  else \
+    echo 'mariadb.service is not running.'; \
+  fi; \
+} || echo 'No session to stop'"
+

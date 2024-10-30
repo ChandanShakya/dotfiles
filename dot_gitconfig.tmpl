@@ -1,0 +1,10 @@
+[init]
+	defaultBranch = main
+[user]
+	email = {{ .email | quote }}
+    name = {{ .name | quote }}
+	signingkey = {{ .signingkey | quote }}
+[core]
+    editor = nvim
+[commit]
+	gpgsign = true

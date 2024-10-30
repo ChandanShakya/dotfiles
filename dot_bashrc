@@ -10,17 +10,17 @@ PS1="\[\033[38;5;11m\][\u@\h]\[$(tput sgr0)\]\[\033[38;5;70m\][\w]\[$(tput sgr0)
 PROMPT_COMMAND="export PROMPT_COMMAND=echo"
 export PATH="$PATH:/home/chandan/.local/bin"
 export PATH="$JAVA_HOME/bin:$PATH"
-export PATH="$PATH:/home/chandan/sysprog/CustomExec"
+export JAVA_HOME="/usr/lib/jvm/java-20-temurin/"
 SILENT_JDK_JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 unset JDK_JAVA_OPTIONS
 alias java='java "$SILENT_JDK_JAVA_OPTIONS"'
 export HISTSIZE=-1
 export HISTFILESIZE=-1
-export TERMINAL="alacritty"
+export TERMINAL="xfce4-terminal"
 export RANGER_LOAD_DEFAULT_RC="FALSE"
 export VISUAL="nvim"
 export EDITOR="nvim"
-
+export TMUX_POWERLINE_THEME="my-theme"
 # pip bash completion start
 _pip_completion()
 {
@@ -33,6 +33,5 @@ complete -o default -F _pip_completion pip
 
 source ~/.bash_aliases
 source ~/.inputrc
-source ~/sysprog/CustomExec/_ani-cli-bash
 export GPG_TTY=$(tty)
 export PATH=~/.local/bin/:$PATH
